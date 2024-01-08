@@ -1,4 +1,12 @@
+import { ChangeEvent, useState } from 'react';
+
 export function NewEntry() {
+  const [Src, setSrc] = useState('../src/images/placeholder-image-square.jpg');
+
+  function handleOnChangeSrc(event: ChangeEvent<HTMLInputElement>) {
+    setSrc(event.target.value);
+  }
+
   return (
     <>
       <meta charSet="UTF-8" />
@@ -35,7 +43,7 @@ export function NewEntry() {
                 <img
                   className="input-b-radius form-image"
                   id="formImage"
-                  src="images/placeholder-image-square.jpg"
+                  src={Src}
                   alt="image of entry image"
                 />
               </div>
@@ -54,6 +62,7 @@ export function NewEntry() {
                   Photo URL
                 </label>
                 <input
+                  onChange={handleOnChangeSrc}
                   required
                   className="input-b-color text-padding input-b-radius purple-outline input-height margin-bottom-2 d-block width-100"
                   type="text"
