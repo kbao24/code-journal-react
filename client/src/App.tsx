@@ -1,15 +1,14 @@
-import { useState } from 'react';
 import './App.css';
-import {NewEntry} from './NewEntry';
-import {EntriesList} from './EntriesList';
+import { NewEntry } from './NewEntry';
+import { EntriesList } from './EntriesList';
+import { Navigation } from './Navigation';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
+      <Navigation />
       <NewEntry />
-      <EntriesList/>
+      <EntriesList />
     </>
   );
 }
