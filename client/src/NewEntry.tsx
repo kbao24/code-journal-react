@@ -1,10 +1,22 @@
 import { ChangeEvent, useState } from 'react';
 
 export function NewEntry() {
+  const [Title, setTitle] = useState('');
+  console.log(Title);
+  const [Notes, setNotes] = useState('');
+  console.log(Notes);
   const [Src, setSrc] = useState('../src/images/placeholder-image-square.jpg');
 
   function handleOnChangeSrc(event: ChangeEvent<HTMLInputElement>) {
     setSrc(event.target.value);
+  }
+
+  function handleOnChangeTitle(event: ChangeEvent<HTMLInputElement>) {
+    setTitle(event.target.value);
+  }
+
+  function handleOnChangeNotes(event: ChangeEvent<HTMLTextAreaElement>) {
+    setNotes(event.target.value);
   }
 
   return (
@@ -57,6 +69,7 @@ export function NewEntry() {
                   type="text"
                   id="formTitle"
                   name="formTitle"
+                  onChange={handleOnChangeTitle}
                 />
                 <label className="margin-bottom-1 d-block" htmlFor="photoUrk">
                   Photo URL
@@ -84,6 +97,7 @@ export function NewEntry() {
                   cols={30}
                   rows={10}
                   defaultValue={''}
+                  onChange={handleOnChangeNotes}
                 />
               </div>
             </div>
